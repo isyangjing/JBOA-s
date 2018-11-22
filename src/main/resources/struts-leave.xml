@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="leave" namespace="/jsp/leave" extends="struts-default">
+		<!-- 报销单操作Action配置 -->
+		<!--员工提交后，部门经理，总经理，财务登陆后调用action-->
+		<action name="leave_searchLeave" method="lsearch" class="leaveAction">
+			<result name="list">leave_list.jsp </result>
+		</action>
+
+		<action name="leave_toEdit" method="edit" class="leaveAction">
+			<result name="endi">leave_edit.jsp </result>
+		</action>
+
+		<action name="leave_getLeaveById" method="into" class="leaveAction">
+			<result name="view">leave_view.jsp </result>
+		</action>
+
+		<action name="leave_saveEdit" method="saveLeave" class="leaveAction">
+			<result name="list">leave_list.jsp </result>
+			<result name="endi">leave_edit.jsp </result>
+		</action>
+
+	</package>
+</struts>
+

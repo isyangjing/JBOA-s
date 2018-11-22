@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="cn.jboa.entity">
+
+    <class table="BIZ_LEAVE" name="Leave">
+
+
+        <id name="id" type="java.lang.Long">
+
+
+            <column name="ID" length="20"/>
+
+            <generator class="increment"/>
+
+
+        </id>
+
+
+        <many-to-one name="creator" class="Employee" lazy="false" fetch="select" not-found="ignore">
+
+            <column name="EMPLOYEE_SN" not-null="true"/>
+        </many-to-one>
+
+
+        <property name="startTime" type="java.util.Date">
+
+
+            <column name="`STARTTIME`" length="45" not-null="true"/>
+
+        </property>
+
+
+        <property name="endTime" type="java.util.Date">
+
+
+            <column name="`ENDTIME`" length="45" not-null="true">
+
+                <comment>结束时间</comment>
+
+            </column>
+
+        </property>
+
+
+        <property name="leaveDay" type="java.lang.Double">
+
+
+            <column name="LEAVEDAY" length="45" not-null="true">
+
+                <comment>请假天数</comment>
+
+            </column>
+
+        </property>
+
+
+        <property name="reason" type="java.lang.String">
+
+
+            <column name="REASON" length="20" not-null="true">
+
+                <comment>原因</comment>
+
+            </column>
+
+        </property>
+
+
+        <property name="status" type="java.lang.String">
+
+
+            <column name="STATUS" length="20" not-null="false">
+
+                <comment>状态</comment>
+
+            </column>
+
+        </property>
+
+
+        <property name="leaveType" type="java.lang.String">
+
+
+            <column name="LEAVETYPE" length="20" not-null="true">
+
+                <comment>请假类型</comment>
+
+            </column>
+
+        </property>
+
+
+        <many-to-one name="nextDeal" class="Employee" lazy="false" fetch="select" not-found="ignore">
+
+
+            <column name="NEXT_DEAL_SN" not-null="true">
+
+                <comment>下一个时间</comment>
+
+            </column>
+
+        </many-to-one>
+
+
+        <property name="approveOpinion" type="java.lang.String">
+
+
+            <column name="APPROVE_OPINION" length="20" not-null="false">
+
+                <comment>批准的意见</comment>
+
+            </column>
+
+        </property>
+
+
+        <property name="createTime" type="java.util.Date">
+
+
+            <column name="`CREATETIME`" length="45" not-null="true">
+
+                <comment>创建的时间</comment>
+
+            </column>
+
+        </property>
+
+
+        <property name="modifyTime" type="java.util.Date">
+
+
+            <column name="`MODIFYTIME`" length="45" not-null="true">
+
+                <comment>修改的时间</comment>
+
+            </column>
+
+        </property>
+
+    </class>
+
+</hibernate-mapping>
